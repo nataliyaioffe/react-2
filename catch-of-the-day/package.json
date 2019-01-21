@@ -16,7 +16,8 @@
     "react-router-dom": "^4.2.2",
     "react-transition-group": "^2.2.1",
     "serve": "^10.1.1",
-    "stylus": "0.54.5"
+    "stylus": "^0.54.5",
+    "stylus-in-react": "^2.0.1"
   },
   "scripts": {
     "dev": "react-scripts start",
@@ -29,7 +30,6 @@
   },
   "browserslist": [
     ">0.2%",
-    "not dead",
     "not ie <= 11",
     "not op_mini all"
   ]
