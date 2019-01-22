@@ -1,8 +1,15 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { formatPrice } from "../helpers";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 class Order extends Component {
+  static propTypes = {
+    fishes: PropTypes.object,
+    order: PropTypes.object,
+    removeFromOrder: PropTypes.func
+  };
+
   renderOrder = key => {
     const fish = this.props.fishes[key];
     const count = this.props.order[key];
@@ -16,17 +23,24 @@ class Order extends Component {
     if (!fish) return null;
 
     if (!isAvailable) {
-      return <CSSTransition {...orderTransitionOptions}>
+      return (
+        <CSSTransition {...orderTransitionOptions}>
           <li key={key}>
             Sorry, {fish ? fish.name : "fish"} is no longer available;
           </li>
-        </CSSTransition>;
+        </CSSTransition>
+      );
     }
-    return <CSSTransition {...orderTransitionOptions}>
+    return (
+      <CSSTransition {...orderTransitionOptions}>
         <li key={key}>
           <span>
             <TransitionGroup component="span" className="count">
-              <CSSTransition classNames="count" key={count} timeout={{ enter: 500, exit: 500 }}>
+              <CSSTransition
+                classNames="count"
+                key={count}
+                timeout={{ enter: 500, exit: 500 }}
+              >
                 <span>{count}</span>
               </CSSTransition>
             </TransitionGroup>
@@ -37,7 +51,8 @@ class Order extends Component {
             </button>
           </span>
         </li>
-      </CSSTransition>;
+      </CSSTransition>
+    );
   };
 
   render() {
