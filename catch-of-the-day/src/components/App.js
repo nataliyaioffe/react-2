@@ -14,9 +14,8 @@ class App extends Component {
   };
 
   static propTypes = {
-    match: PropTypes.object
-  }
-
+    match: PropTypes.object.isRequired
+  };
 
   // sync app's state to the to the specific store's "fishes" database reference
   componentDidMount() {
@@ -133,6 +132,7 @@ class App extends Component {
           deleteFish={this.deleteFish}
           loadSampleFishes={this.loadSampleFishes}
           fishes={this.state.fishes}
+          storeid={this.props.match.params.storeid}
         />
       </div>
     );

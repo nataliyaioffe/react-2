@@ -5,13 +5,13 @@ import { formatPrice } from "../helpers";
 class Fish extends Component {
   static propTypes = {
     details: PropTypes.shape({
-      image: PropTypes.string,
-      name: PropTypes.string,
-      desc: PropTypes.string,
-      status: PropTypes.string,
-      price: PropTypes.number
+      image: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      desc: PropTypes.string.isRequired,
+      status: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired
     }),
-    addToOrder: PropTypes.func
+    addToOrder: PropTypes.func.isRequired
   };
   handleClick = () => {
     this.props.addToOrder(this.props.index);
